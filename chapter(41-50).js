@@ -161,8 +161,11 @@ console.log(number[0]);
 function bubble(arr) {
   let result = arr.slice(); // 원본 배열 복사
 
+  //arr의 처음부터 끝에서 2번째 숫자까지 반복
   for (let i = 0; i < result.length - 1; i++) {
+    //처음부터 i전까지 반복
     for (let j = 0; j < result.length - i; j++) {
+      //비교 후 위치 바꾸기
       if (result[j] > result[j + 1]) {
         let temp = result[j];
         result[j] = result[j + 1];
