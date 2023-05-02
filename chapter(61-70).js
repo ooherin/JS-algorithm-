@@ -108,3 +108,18 @@ a.map((e, index) => {
   }
   return [b[i], a[i]];
 });
+
+//66 블럭탑쌓기
+const 탑 = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG", "EFGHZ"];
+const 규칙 = "ABD";
+//ABD만 남기기
+//규칙에서 남긴게 include 되어 있으면 '가능', 아니면 '불가능'
+
+let filtered = [];
+for (let ele of 탑) {
+  for (let i = 0; i < ele.length; i++) {
+    if (규칙.includes(ele[i])) {
+      filtered[i].push(ele[i]);
+    }
+  }
+}
