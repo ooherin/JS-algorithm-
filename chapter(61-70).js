@@ -115,11 +115,42 @@ const 규칙 = "ABD";
 //ABD만 남기기
 //규칙에서 남긴게 include 되어 있으면 '가능', 아니면 '불가능'
 
-let filtered = [];
-for (let ele of 탑) {
-  for (let i = 0; i < ele.length; i++) {
-    if (규칙.includes(ele[i])) {
-      filtered[i].push(ele[i]);
-    }
-  }
+// let newArr = [];
+// let answer3 = [];
+// for (let ele of 탑) {
+//   let filtered = "";
+//   for (let i = 0; i < ele.length; i++) {
+//     if (규칙.includes(ele[i])) {
+//       filtered += ele[i];
+//     }
+//   }
+//   newArr.push(filtered);
+// }
+// console.log(newArr);
+// for (let ele of newArr) {
+//   if (규칙.includes(ele)) {
+//     answer.push("가능");
+//   } else {
+//     answer.push("불가능");
+//   }
+// }
+// console.log(answer);
+
+//67 민규의 악수
+let totalhand = 59;
+let sum = 0;
+let n = 2;
+while (totalhand > sum) {
+  sum = (n * (n - 1)) / 2;
+  n++;
 }
+let totalMember = n - 1;
+console.log(totalMember); //12
+let HavetoHandCount = (totalMember * (totalMember - 1)) / 2; //66
+//부족한 handcount
+MinusHandCount = HavetoHandCount - totalhand; //
+//민수가 한 handcount
+console.log(totalMember - 1 - MinusHandCount);
+answer = [totalMember, totalMember - 1 - MinusHandCount];
+
+//68
