@@ -137,37 +137,43 @@ const 규칙 = "ABD";
 // console.log(answer);
 
 //67 민규의 악수
-let totalhand = 59;
-let sum = 0;
-let n = 2;
-while (totalhand > sum) {
-  sum = (n * (n - 1)) / 2;
-  n++;
+let shakeCount = 59;
+let totalCount = 0;
+let person = 2;
+while (true) {
+  totalCount = (person * (person - 1)) / 2;
+  person++;
+  if (shakeCount > totalCount) {
+    break;
+  }
+  totalMember = person;
 }
-let totalMember = n - 1;
+let totalMember = person - 1;
 console.log(totalMember); //12
 let HavetoHandCount = (totalMember * (totalMember - 1)) / 2; //66
 //부족한 handcount
-MinusHandCount = HavetoHandCount - totalhand; //
+MinusHandCount = HavetoHandCount - shakeCount; //
 //민수가 한 handcount
 console.log(totalMember - 1 - MinusHandCount);
 answer = [totalMember, totalMember - 1 - MinusHandCount];
 
 //답안
-function solution(n) {
-  let person = 0;
-  let totalShake = 0;
-  let temp = 0;
-  while (true) {
-    totalShake - parseInt((person * (person - 1)) / 2, 10);
-    if (n < totalShake) {
-      break;
-    }
-    temp = totalShake;
-    person += 1;
-  }
-  return [parseInt(n - temp, 10), person];
-}
-const shakeCount = 59;
-console.log(solution(shakeCount));
+// function solution(n) {
+//   let person = 0;
+//   let totalShake = 0;
+//   let temp = 0;
+//   //break문 필요 => n이 totalShake보다 작을 때 break
+//   //person을 1씩 증가시키면서
+//   while (true) {
+//     totalShake - parseInt((person * (person - 1)) / 2, 10);
+//     if (n < totalShake) {
+//       break;
+//     }
+//     temp = totalShake;
+//     person += 1;
+//   }
+//   return [parseInt(n - temp, 10), person];
+// }
+// const shakeCount = 59;
+// console.log(solution(shakeCount));
 //68
