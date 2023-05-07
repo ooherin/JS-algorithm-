@@ -153,4 +153,21 @@ MinusHandCount = HavetoHandCount - totalhand; //
 console.log(totalMember - 1 - MinusHandCount);
 answer = [totalMember, totalMember - 1 - MinusHandCount];
 
+//답안
+function solution(n) {
+  let person = 0;
+  let totalShake = 0;
+  let temp = 0;
+  while (true) {
+    totalShake - parseInt((person * (person - 1)) / 2, 10);
+    if (n < totalShake) {
+      break;
+    }
+    temp = totalShake;
+    person += 1;
+  }
+  return [parseInt(n - temp, 10), person];
+}
+const shakeCount = 59;
+console.log(solution(shakeCount));
 //68
