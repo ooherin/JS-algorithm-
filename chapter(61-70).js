@@ -137,43 +137,73 @@ const 규칙 = "ABD";
 // console.log(answer);
 
 //67 민규의 악수
-let shakeCount = 59;
-let totalCount = 0;
+let totalShakes = 59;
+let sum = 0;
 let person = 2;
-while (true) {
-  totalCount = (person * (person - 1)) / 2;
+while (totalShakes > sum) {
+  sum = (person * (person - 1)) / 2;
   person++;
-  if (shakeCount > totalCount) {
-    break;
-  }
-  totalMember = person;
 }
 let totalMember = person - 1;
 console.log(totalMember); //12
 let HavetoHandCount = (totalMember * (totalMember - 1)) / 2; //66
 //부족한 handcount
-MinusHandCount = HavetoHandCount - shakeCount; //
+MinusHandCount = HavetoHandCount - totalhand; //
 //민수가 한 handcount
 console.log(totalMember - 1 - MinusHandCount);
 answer = [totalMember, totalMember - 1 - MinusHandCount];
 
 //답안
-// function solution(n) {
-//   let person = 0;
-//   let totalShake = 0;
-//   let temp = 0;
-//   //break문 필요 => n이 totalShake보다 작을 때 break
-//   //person을 1씩 증가시키면서
-//   while (true) {
-//     totalShake - parseInt((person * (person - 1)) / 2, 10);
-//     if (n < totalShake) {
-//       break;
-//     }
-//     temp = totalShake;
-//     person += 1;
-//   }
-//   return [parseInt(n - temp, 10), person];
-// }
-// const shakeCount = 59;
-// console.log(solution(shakeCount));
-//68
+function solution(n) {
+  let person = 0;
+  let totalShake = 0;
+  let temp = 0;
+  //break문 필요 => n이 totalShake보다 작을 때 break
+  //person을 1씩 증가시키면서
+  while (true) {
+    totalShake - parseInt((person * (person - 1)) / 2, 10);
+    if (n < totalShake) {
+      break;
+    }
+    temp = totalShake;
+    person += 1;
+  }
+  return [parseInt(n - temp, 10), person];
+}
+const shakeCount = 59;
+console.log(solution(shakeCount));
+
+//68 버스 시간표
+// ["12:30", "13:20", "14:13"]
+// "12:40"
+// ['지나갔습니다', '00시간 40분', '01시간 33분']
+
+let currentTime = "12:40".split(":").map((e) => e / 1);
+let answer3 = [];
+
+let currentMinutes = currentTime[0] * 60 + currentTime[1];
+console.log(currentMinutes);
+let timeArr = ["12:30", "13:20", "14:13"];
+for (let time of timeArr) {
+  time = time.split(":").map((e) => e / 1);
+  let minutes = time[0] * 60 + time[1];
+  //기준시간과 현재시간의 차이를 계산
+  let 차이 = minutes - currentMinutes;
+  if (차이 > 60) {
+    let hour = Math.floor(차이 / 60);
+    let minute = 차이 % 60;
+    if (hour < 10) {
+      hour = "0" + hour;
+    }
+    if (minute < 10) {
+      minute = "0" + minute;
+    }
+    answer3.push(`${hour}시간 ${minute}분`);
+  } else if (차이 > 0) {
+    answer3.push(`00시간 ${차이}분`);
+  } else {
+    answer3.push(`지나갔습니다.`);
+  }
+}
+
+console.log(answer3);
