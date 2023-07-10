@@ -207,3 +207,34 @@ for (let time of timeArr) {
 }
 
 console.log(answer3);
+
+//69 골드바흐의 추측
+function isPrime(num) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % 2 === 0) {
+      return false;
+    }
+    return true;
+  }
+}
+
+function 골드바흐(n) {
+  let answer = [];
+  let 소수 = [];
+  //n보다 작은 소수를 구하고
+  //n에서 그 소수를 빤 값이 소수라면
+  //answer에 집어넣는다.
+  //n까지 반복문
+  for (let i = 2; i <= n; i++)
+    //소수인지 판별
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        소수.push(j);
+      }
+    }
+  소수.forEach((num) => {
+    if (isPrime(i - num)) answer.push(i);
+  });
+}
+
+console.log(answer);

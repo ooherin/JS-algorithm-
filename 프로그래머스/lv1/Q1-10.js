@@ -144,3 +144,68 @@ function solution(answers) {
 
 //   return val;
 // }
+
+//Q4
+//추억 점수
+function solution(name, yearning, photo) {
+  let answer = [];
+  photo.forEach((item) => {
+    let sum = 0;
+    item.forEach((person) => {
+      let targetIdx = name.findIndex((personName) => personName === person);
+      sum += yearning[targetIdx] | 0; //해당 사람이 없을 경우 0
+    });
+    answer.push(sum);
+  });
+  return answer;
+}
+
+//Q5
+//2016년
+function solution(a, b) {
+  let days = b;
+  for (let i = 1; i < a; i++) {
+    switch (i) {
+      case 1: //switch문에서 case를 여러개 쓰는 법
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        days += 31;
+        break; //break 필수
+      case 2:
+        days += 29;
+        break;
+      default:
+        days += 30;
+    }
+  }
+  const rest = days % 7;
+  const arr = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"];
+  console.log(arr[rest]);
+  return arr[rest];
+}
+//다른 풀이
+function getDayName(a, b) {
+  let tempDate = new Date(2016, a - 1, b); //메소드 사용
+  return tempDate, toString().slice(0, 3).toUpperCase();
+}
+
+//과일장수
+function solution(k, m, score) {
+  let answer = 0;
+  const sortedScore = score.sort((a, b) => b - a); //가장 큰 점수부터 정렬
+  let arr = []; //m개씩 나눠서 넣을 배열 만들기
+  for (let i = 0; i <= sortedScore.length; i += m) {
+    const sliced = sortedScore.slice(i, i + m); //m개씩 잘라서 sliced에 넣음
+    arr.push(sliced); //arr에 중첩배열로 들어감
+  }
+  arr.forEach((item) => {
+    //arr에서 길이가 m이면 가격을 더하고 아니면 0리턴
+    if (item.length === m) return (answer += item[m - 1] * m);
+    return 0;
+  });
+  return answer;
+}
