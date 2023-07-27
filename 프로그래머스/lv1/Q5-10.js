@@ -137,7 +137,7 @@ function solution(babbling) {
   return answer;
 }
 
-//Q7
+//Q8
 //문자열 나누기
 function solution(s) {
   let string = [...s];
