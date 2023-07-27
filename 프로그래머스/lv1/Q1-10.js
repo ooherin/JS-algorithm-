@@ -192,20 +192,3 @@ function getDayName(a, b) {
   let tempDate = new Date(2016, a - 1, b); //메소드 사용
   return tempDate, toString().slice(0, 3).toUpperCase();
 }
-
-//과일장수
-function solution(k, m, score) {
-  let answer = 0;
-  const sortedScore = score.sort((a, b) => b - a); //가장 큰 점수부터 정렬
-  let arr = []; //m개씩 나눠서 넣을 배열 만들기
-  for (let i = 0; i <= sortedScore.length; i += m) {
-    const sliced = sortedScore.slice(i, i + m); //m개씩 잘라서 sliced에 넣음
-    arr.push(sliced); //arr에 중첩배열로 들어감
-  }
-  arr.forEach((item) => {
-    //arr에서 길이가 m이면 가격을 더하고 아니면 0리턴
-    if (item.length === m) return (answer += item[m - 1] * m);
-    return 0;
-  });
-  return answer;
-}
