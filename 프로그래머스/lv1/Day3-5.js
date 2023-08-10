@@ -197,3 +197,43 @@ function solution(keymap, targets) {
   });
   return filterAnswer;
 }
+
+//Q9
+//명예의 전당
+//k등까지만 살아남음
+//score에서 k까지 계속 추가
+//k이후에는 가장 작은 값과 추가된 값을 비교함
+//가장 min한 값을 result에 넣음 
+
+function solution(k, score) {
+  var answer = [];
+  let current = [];
+  for(let i = 0; i < score.length; i++){
+      if(answer.length < k){
+          current.push(score[i]);
+          answer.push(Math.min(...current));
+      }else{
+        current.sort((a,b)=> a-b);
+        if(score[i]> current[0]){
+           current[0] = score[i];
+           current.sort((a,b)=> a-b);    
+           answer.push(current[0])
+        }else{
+          answer.push(current[0])  
+        }
+      }
+  }
+  return answer;
+}
+
+//Q10
+//달리기 경주
+function solution(players, callings) {
+  var answer = [];
+  callings.forEach((call)=>{
+      const targetIndex = players.findIndex(player => player === call);
+      players.splice(targetIndex,1);
+      players.splice(targetIndex-1,0,call);
+  })
+  return players;
+}
