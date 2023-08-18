@@ -52,3 +52,5 @@ function solution(a, b, n) {
   }
   return answer;
 }
+//b를 사용안햇음. 테케가 맞았던 거는 b가 1이라 영향을 안받았기 때문임.
+// '/'은 그냥 나누기, 몫이 아님
