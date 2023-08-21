@@ -11,7 +11,7 @@ function solution(dartResult) {
         //두번째 숫자일때
         //10인 경우
         if (arr[i - 1] == 1 && e == 0) {
-          return (temp = ["10"]); //얼리리턴
+          return (temp = ["10"]); //얼리리턴 onTurnArr에 넣진 않음ㄴ
         } else {
           oneTurnArr.push(temp);
         }
