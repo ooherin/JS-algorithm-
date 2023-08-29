@@ -1,5 +1,7 @@
+//20분
+
+
 function solution(new_id) {
-  var answer = "";
   let changeId = new_id
     .toLowerCase()
     .replace(/[^a-z0-9-_.]/g, "")
